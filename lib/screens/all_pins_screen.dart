@@ -8,9 +8,6 @@ class AllPinsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final routeArgs =
-        ModalRoute.of(context).settings.arguments as Map<String, String>;
-
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/one_pin_screen.dart';
+
 class PinPreview extends StatelessWidget {
   final String name;
   final String imageUrl;
@@ -14,14 +16,27 @@ class PinPreview extends StatelessWidget {
       @required this.price,
       @required this.details});
 
+  void selectPin(BuildContext context) {
+    Navigator.of(context).pushNamed(OnePinScreen.routeName, arguments: id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () => selectPin(context),
       splashColor: Colors.red,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: Container(
+          // decoration: BoxDecoration(
+          //   boxShadow: [
+          //     BoxShadow(
+          //       offset: Offset(3, 5),
+          //       blurRadius: 5,
+          //       color: Colors.blue[200],
+          //     ),
+          //   ],
+          // ),
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -37,13 +52,6 @@ class PinPreview extends StatelessWidget {
                     bottomRight: Radius.circular(20),
                   ),
                   color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(3, 5),
-                      blurRadius: 5,
-                      color: Colors.grey[400],
-                    ),
-                  ],
                 ),
                 child: Container(
                   padding: EdgeInsets.all(20),
