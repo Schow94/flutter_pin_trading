@@ -12,7 +12,37 @@ class OnePinScreen extends StatelessWidget {
     // Same as where().first since where returns an iterable
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Buy Pin',
+              style: TextStyle(color: Colors.grey[600]),
+            ),
+            Text(
+              '${selectedPin.name}',
+              style: TextStyle(
+                color: Colors.grey[400],
+                fontSize: 15,
+              ),
+            ),
+          ],
+        ),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(
+          color: Colors.blue,
+        ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.share,
+              color: Colors.blue,
+            ),
+          ),
+        ],
+      ),
       body: ListView(
         children: <Widget>[
           Container(
@@ -24,7 +54,7 @@ class OnePinScreen extends StatelessWidget {
                   Column(
                     children: <Widget>[
                       Container(
-                        margin: EdgeInsets.only(top: 20),
+                        margin: EdgeInsets.only(top: 20, bottom: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
@@ -46,6 +76,68 @@ class OnePinScreen extends StatelessWidget {
                           ],
                         ),
                       ),
+                      Divider(),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              'About this seller',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            ListTile(
+                              leading: CircleAvatar(
+                                radius: 20,
+                                backgroundImage: AssetImage(
+                                    'assets/images/Vic_profilePic.jpeg'),
+                              ),
+                              subtitle: Text(
+                                  'Native to  beautiful and foggy San Francisco, Victoria can be found searching the web for the latest Disney pins on Facebook, Forums, and Ebay'),
+                            ),
+                            Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.lightBlue,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.lightBlue,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.lightBlue,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.lightBlue,
+                                      ),
+                                      Icon(
+                                        Icons.star_half,
+                                        color: Colors.lightBlue,
+                                      ),
+                                    ],
+                                  ),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(left: 10),
+                                      child: Text(
+                                        ' (4.5/5.0) Rating',
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(),
                       ButtonBar(
                         children: <Widget>[
                           RaisedButton(
@@ -57,7 +149,7 @@ class OnePinScreen extends StatelessWidget {
                             child: Row(
                               children: <Widget>[
                                 Text(
-                                  'Add to Wishlist',
+                                  'Add to Wishlist ',
                                   style: TextStyle(fontSize: 18),
                                 ),
                                 Icon(Icons.favorite),
@@ -74,7 +166,7 @@ class OnePinScreen extends StatelessWidget {
                             child: Row(
                               children: <Widget>[
                                 Text(
-                                  'Buy Now',
+                                  'Buy Now ',
                                   style: TextStyle(fontSize: 18),
                                 ),
                                 Icon(Icons.shopping_cart),
@@ -92,39 +184,52 @@ class OnePinScreen extends StatelessWidget {
                     children: <Widget>[
                       // Want to left align descripton header
                       Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        padding: EdgeInsets.only(bottom: 10),
                         child: Text(
                           'Description',
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
                         ),
                       ),
 
-                      Text('${selectedPin.description}'),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          '${selectedPin.description}',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
                       Divider(),
                     ],
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: Text(
-                          'Details',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 10),
+                          child: Text(
+                            'Details',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey,
+                            ),
                           ),
                         ),
-                      ),
-                      // for (var detail in selectedPin.details) Text(detail),
-                      // Equivalent to ^^ the above
-                      ...selectedPin.details.map(
-                        (val) => Text('- ${val}'),
-                      ),
-                    ],
+                        // for (var detail in selectedPin.details) Text(detail),
+                        // Equivalent to ^^ the above
+                        ...selectedPin.details.map(
+                          (val) => Text(
+                            '- $val',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

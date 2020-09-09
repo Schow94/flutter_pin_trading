@@ -8,8 +8,15 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // title: Text('Pin Trade'),
         elevation: 0,
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.short_text,
+            color: Colors.white,
+            size: 50,
+          ),
+        ),
       ),
       body: Column(
         children: <Widget>[
@@ -27,9 +34,25 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   child: Container(
+                    width: MediaQuery.of(context).size.width,
                     padding: EdgeInsets.only(left: 10),
-                    child: Row(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: Container(
+                            padding: EdgeInsets.only(right: 20),
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.shopping_cart,
+                                color: Colors.white,
+                                size: 40,
+                              ),
+                            ),
+                          ),
+                        ),
                         Text(
                           'Pin Trading',
                           style: TextStyle(
@@ -91,17 +114,20 @@ class HomeScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               // color: Colors.green,
             ),
-            height: MediaQuery.of(context).size.height * 0.65,
+            width: MediaQuery.of(context).size.width * 0.85,
+            height: MediaQuery.of(context).size.height * 0.66,
             child: GridView(
               children: DUMMY_CATEGORIES
                   .map(
-                    (cat) => HomeCategory(cat),
+                    (cat) => HomeCategory(
+                      category: cat.category,
+                      icon: cat.icon,
+                    ),
                   )
                   .toList(),
               gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 200,
-                // crossAxisSpacing: 20,
-                // mainAxisSpacing: 20,
+                // crossAxisSpacing: 60,
               ),
             ),
           ),

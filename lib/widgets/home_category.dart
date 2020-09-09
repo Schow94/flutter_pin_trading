@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../screens/all_pins_screen.dart';
+// import '../dummy_data.dart';
 
 class HomeCategory extends StatelessWidget {
   final String category;
+  final IconData icon;
 
-  HomeCategory(this.category);
+  HomeCategory({@required this.category, @required this.icon});
 
   void selectCategory(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(
@@ -22,12 +24,7 @@ class HomeCategory extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(10),
         child: Container(
-          child: Center(
-            child: Text(
-              category,
-              style: TextStyle(fontSize: 20),
-            ),
-          ),
+          // margin: EdgeInsets.all(40),
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(
@@ -40,6 +37,19 @@ class HomeCategory extends StatelessWidget {
                 // spreadRadius: 5,
                 blurRadius: 5,
                 offset: Offset(3, 5),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: Icon(icon, size: 50, color: Colors.pink),
+              ),
+              Text(
+                category,
+                style: TextStyle(fontSize: 20, color: Colors.grey[700]),
               ),
             ],
           ),

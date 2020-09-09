@@ -1,12 +1,33 @@
+import 'package:flutter/material.dart';
+
 import './models/pin.dart';
+import './models/category.dart';
 
 const DUMMY_CATEGORIES = const [
-  'Home',
-  'Sell Pins',
-  'Buy Pins',
-  'Trade Pins',
-  'Socialize',
-  'Settings'
+  Category(
+    category: 'Home',
+    icon: Icons.home,
+  ),
+  Category(
+    category: 'Sell Pins',
+    icon: Icons.attach_money,
+  ),
+  Category(
+    category: 'Buy Pins',
+    icon: Icons.shopping_cart,
+  ),
+  Category(
+    category: 'Trade Pins',
+    icon: Icons.home,
+  ),
+  Category(
+    category: 'Socialize',
+    icon: Icons.supervisor_account,
+  ),
+  Category(
+    category: 'Settings',
+    icon: Icons.settings,
+  ),
 ];
 
 const DUMMY_PINS = const [
