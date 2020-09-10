@@ -14,6 +14,7 @@ class AllPinsScreen extends StatelessWidget {
         title: Text('View All Pins'),
       ),
       body: Container(
+        // height: MediaQuery.of(context).size.height * 0.86,
         margin: EdgeInsets.only(top: 10),
         child: GridView(
           padding: EdgeInsets.all(15),

@@ -25,64 +25,54 @@ class PinPreview extends StatelessWidget {
     return InkWell(
       onTap: () => selectPin(context),
       splashColor: Colors.red,
+      borderRadius: BorderRadius.circular(20),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: Container(
-          // decoration: BoxDecoration(
-          //   boxShadow: [
-          //     BoxShadow(
-          //       offset: Offset(3, 5),
-          //       blurRadius: 5,
-          //       color: Colors.blue[200],
-          //     ),
-          //   ],
-          // ),
+          decoration: BoxDecoration(
+            color: Colors.white,
+          ),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Image.network(
                 imageUrl,
-                fit: BoxFit.cover,
+                height: 200,
+                width: 200,
               ),
+              Divider(),
               Container(
+                height: 50,
+                padding: EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20),
-                  ),
                   color: Colors.white,
                 ),
-                child: Container(
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Flexible(
-                        child: Text(
-                          '${name.substring(0, 20)}...',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        '\$$price',
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Flexible(
+                      child: Text(
+                        '${name.substring(0, 20)}...',
                         style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: Colors.black,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    Text(
+                      '\$$price',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
               ),
+              // ),
             ],
           ),
         ),

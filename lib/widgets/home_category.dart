@@ -24,7 +24,6 @@ class HomeCategory extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(10),
         child: Container(
-          // margin: EdgeInsets.all(40),
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(
